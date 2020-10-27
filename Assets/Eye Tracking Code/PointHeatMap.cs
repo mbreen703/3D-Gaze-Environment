@@ -9,17 +9,19 @@ public class PointHeatMap : MonoBehaviour
 {
 	public ParticleSystem system;
 
-	void Start()
-	{
-		Material mat = new Material(Shader.Find("Unlit/PointcloudShader")); 
+	List<Vector3> EyeTrackingVecData = new List<Vector3>();
+	List<Vector3> EyeTrackingPosData = new List<Vector3>();
+	List<string > EyeTrackingObjData = new List<string >();
+
+	bool ShowAllData      = false;
+	bool ShowRealtimeData = true;
+
+	void Start() {
+		Material mat = new Material(Shader.Find("Particles/Standard Unlit")); 
 		RaycastHit hit;
 
 		system = gameObject.GetComponent<ParticleSystem>();
-		gameObject.GetComponent<ParticleSystemRenderer>().material = mat;
-
-		List<Vector3> EyeTrackingVecData = new List<Vector3>();
-		List<Vector3> EyeTrackingPosData = new List<Vector3>();
-		List<string > EyeTrackingObjData = new List<string >();
+		//gameObject.GetComponent<ParticleSystemRenderer>().material = mat;
 
 		using (var reader = new StreamReader(@"Assets/Eye Tracking Data/FoveEyes_9-15-2020 9_06_01 AM.csv"))
 		{
@@ -50,19 +52,48 @@ public class PointHeatMap : MonoBehaviour
 			}
 		}
 
-		for (var i = 0; i < EyeTrackingPosData.Count; i++) {
-			if (Physics.Raycast(EyeTrackingPosData[i], EyeTrackingVecData[i], out hit))
-	            { // We have hit geometry of some sort.
-	                EmitPoint(EyeTrackingPosData[i] + EyeTrackingVecData[i] * hit.distance);
-	            }
+		if (ShowAllData) {
+			for (var i = 0; i < EyeTrackingPosData.Count; i++) {
+				if (Physics.Raycast(EyeTrackingPosData[i], EyeTrackingVecData[i], out hit))
+					{ // We have hit geometry of some sort.
+						EmitPoint(EyeTrackingPosData[i] + EyeTrackingVecData[i] * hit.distance);
+					}
+			}
 		}
 	}
 
-	void EmitPoint(Vector3 pos)
-	{
+	float FrameNumber  = 0;
+	float FrameRate    = 30; //FPS
+	int   CurrentFrame = 0;
+	void Update() {
+		if (ShowRealtimeData) {
+			RaycastHit hit;
+
+			FrameNumber += Time.deltaTime;
+
+			while (FrameNumber >= (1/FrameRate)) {
+				   FrameNumber -= (1/FrameRate);
+
+				if (CurrentFrame < EyeTrackingPosData.Count) {
+					if (Physics.Raycast(EyeTrackingPosData[CurrentFrame], EyeTrackingVecData[CurrentFrame], out hit)) { // We have hit geometry of some sort.
+						var emitParams = new ParticleSystem.EmitParams();
+						emitParams.startColor = Color.green;
+						emitParams.startSize  = 0.04f;
+						emitParams.position   = EyeTrackingPosData[CurrentFrame] + EyeTrackingVecData[CurrentFrame] * hit.distance;
+						emitParams.startLifetime   = 2;
+						system.Emit(emitParams, 10);
+					}
+					Debug.Log(CurrentFrame);
+					CurrentFrame++;
+				}
+			}
+		}
+	}
+
+	void EmitPoint(Vector3 pos) {
 		var emitParams = new ParticleSystem.EmitParams();
 		emitParams.startColor = Color.red;
-		emitParams.startSize  = 0.025f;
+		emitParams.startSize  = 0.03f;
 		emitParams.position   = pos;
 		system.Emit(emitParams, 10);
 	}
