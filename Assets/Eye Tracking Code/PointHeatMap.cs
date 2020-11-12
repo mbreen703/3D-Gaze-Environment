@@ -92,7 +92,7 @@ public class PointHeatMap : MonoBehaviour
 
 	void EmitPoint(Vector3 pos) {
 		var emitParams = new ParticleSystem.EmitParams();
-		emitParams.startColor = Color.red;
+		emitParams.startColor = Color.blue;
 		emitParams.startSize  = 0.03f;
 		emitParams.position   = pos;
 		system.Emit(emitParams, 10);
