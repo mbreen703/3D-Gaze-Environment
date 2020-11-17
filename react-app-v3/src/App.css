@@ -1,0 +1,350 @@
+/* Chome, Safari */
+body::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
+
+/* IE, Edge, Firefox */
+body {
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none;
+}
+
+
+.flex-wrapper {
+	/*
+  border: 10px solid #00cdcd;
+  lime-#00FF00
+  */
+  border: 10px solid #000000;
+  background-color: #66b266;
+	
+	min-width: 100%;
+	min-height: 100%;
+
+	/*
+	min-height: 1000px;
+  min-width: 1000px;
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+  padding: 0px;
+	*/
+	display: flex;
+	justify-content: center;
+  align-items: center;
+	/*
+	overflow: hidden;
+	*/
+}
+
+.wrap {
+	/*	
+	width: 100%;
+	height: 100%;
+	min-height: 1000px;
+  */
+	min-height: 100%;
+	min-width: 100%;
+	/*
+	margin: 0px;
+  padding: 0px;
+	*/
+	cursor: pointer;
+	/*
+	overflow: hidden;
+  font: bold 24px verdana;
+  */
+  text-align: center;
+
+  display: grid;
+	/*
+  grid-template-areas:  "left unity-env right"
+												"left env-toolbar right";
+  */
+
+	grid-template-areas: "left unity-env right";
+
+	/*
+  "left select-panel right";
+
+  grid-template-rows: auto 18%;
+  
+	grid-template-rows: 93% 7%;
+	*/
+
+	grid-template-columns: 200px auto 200px;
+
+  /*
+  display: grid;
+  grid-template-areas: "menuBar PROJECTS BUILD SOURCE"
+                       "menuBar PROJECTS OVERVIEW SOURCE";
+
+  grid-template-rows: 75% 25%;
+  grid-template-columns: 3% 15% 67% 15%;
+  overflow: hidden;
+  */
+}
+
+#left-panel{
+  width: 200px;
+	height: 100vh;
+	/*
+	height: 100%;
+	position: absolute;
+  height: 200px;
+  */
+  background-color: #000000;
+  grid-area: left;
+}
+
+#right-panel{
+  width: 200px;
+  height: 100vh;
+	/*
+	height: 100%;
+  */
+	background-color: #000000;
+
+  grid-area: right;
+}
+
+#team-logo1 { 
+	float:left;
+	/*
+	position: relative;
+	margin-left: 0px;
+  margin-top: 5px;
+  */
+	left: 12px;
+	top: 5px;
+	width: 175px;
+  height: 182px;
+
+	/*
+  background: url('tmpData/team-logo-med.png') no-repeat center;
+	*/
+}
+
+#team-logo2 {
+  float:right;
+	/*
+	position: relative;
+	margin-right: 0px;
+  margin-top: 5px;
+  */
+	right: 12px;
+	top: 5px;
+
+	width: 175px;
+  height: 182px;
+  /*
+	background: url('tmpData/team-logo-med.png') no-repeat center;
+	*/
+}
+
+#unity-container.unity-desktop { 
+	position: absolute;
+
+	background-color: #ffffff;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+  border: 7px solid #000000;
+	grid-area: unity-env;
+}
+
+#unity-canvas { 
+	
+	display: block;
+	position: relative;
+  background-color: #231F20;
+
+  width: 100%;
+  height: auto;
+  /*
+  max-width: 1400px;
+  max-height: 1000px;
+  background-color: #231F20
+  background: red;
+  position: absolute;
+	grid-area: unity-env;
+	*/
+}
+
+#prevImg {
+	/*
+  height: 850px;
+  width: 1400px;
+	*/
+
+	position: absolute;
+	max-width: 100%;
+	max-height: 100%;
+	
+	display: block;
+	/*
+	vertical-align: top;
+	*/
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/*
+img {
+	
+  width: auto;
+  height: auto;
+
+
+  height: 850px;
+  width: 1400px;
+  object-fit: cover;
+}
+
+
+#unity-container.unity-mobile { width: 100%; height: 100% }
+#unity-canvas { background: #231F20 }
+.unity-mobile #unity-canvas { width: 100%; height: 100% }
+
+#unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none }
+#unity-logo { width: 154px; height: 130px; background: url('unity-logo-dark.png') no-repeat center }
+#unity-progress-bar-empty { width: 141px; height: 18px; margin-top: 10px; background: url('progress-bar-empty-dark.png') no-repeat center }
+#unity-progress-bar-full { width: 0%; height: 18px; margin-top: 10px; background: url('progress-bar-full-dark.png') no-repeat center }
+*/
+
+#unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none }
+#unity-logo { width: 154px; height: 130px; }
+#unity-progress-bar-empty { width: 141px; height: 18px; margin-top: 10px; }
+#unity-progress-bar-full { width: 0%; height: 18px; margin-top: 10px; }
+
+
+#unity-footer {
+  /*
+  position: absolute;
+  align-items: center;
+  */
+  position: relative;
+  width: auto;
+  height: 70px;
+	/*
+	grid-area: env-toolbar;
+	*/
+}
+
+#interview-type {
+  /*
+  To implement
+  */
+
+}
+
+
+
+/*
+.unity-mobile #unity-footer { display: none }
+#unity-webgl-logo { float:left; width: 204px; height: 38px; background: url('webgl-logo.png') no-repeat center }
+*/
+
+#unity-fullscreen-button {
+  border: 4px solid #000000;
+  font: bold 20px palatino;
+
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  vertical-align: center;
+}
+
+
+/*
+#unity-fullscreen-button { float: right; width: 40px; height: 40px; background: url('fullscreen-button.png') no-repeat center }
+*/
+
+#unity-build-title {
+	float: right;
+	/*
+	margin-right: 80px;
+	margin-top: 20px;
+	*/
+	right: 15px;
+	top: 5px;
+	/*
+	position: absolute;
+	*/
+	font: bold 30px palatino;
+	vertical-align: center;
+
+}
+
+#interviewA {
+  background: black;
+  border: 4px solid #00CED1;
+  font: bold 16px palatino;
+  color: white;
+	
+	text-align: center;
+  width: auto;
+  height: 50px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  vertical-align: center;
+	text-align: center;
+}
+#interviewB {
+  background: black;
+  border: 4px solid #00CED1;
+  font: bold 16px palatino;
+  color: white;
+
+	text-align: center;
+  width: auto;
+  height: 50px;
+  position: absolute;
+  top: 5px;
+  left: 150px;
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

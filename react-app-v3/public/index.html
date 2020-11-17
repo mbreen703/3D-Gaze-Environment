@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Unity WebGL Player | gaze3D</title>
+  <link rel="shortcut icon" href="%PUBLIC_URL%/tmpData/favicon.ico">
+  <link rel="stylesheet" href="%PUBLIC_URL%/react-app-v3/src/index.css">
+  <link rel="stylesheet" href="%PUBLIC_URL%/tmpData/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="flex-wrapper">
+        <div class="wrap">
+
+            <div id="left-panel">
+              <img src="%PUBLIC_URL%/tmpData/team-logo-med.png" id="team-logo1"></img>
+            </div>
+
+            <div id="right-panel">
+							<img src="%PUBLIC_URL%/tmpData/team-logo-med.png" id="team-logo2"></img>
+            </div>
+
+            <div id="unity-container" class="unity-desktop">
+						
+              <div id="unity-canvas" style="width: 1350px; height: 800px;"></div>
+
+              <div id="unity-loading-bar">
+                <div id="unity-logo" src="react-app-v3/src/tmpData/unity-logo-dark.png"></div>
+                <div id="unity-progress-bar-empty" src="react-app-v3/src/tmpData/progress-bar-empty-dark.png">
+                  <div id="unity-progress-bar-full" src="react-app-v3/src/tmpData/progress-bar-full-dark.png"></div>
+                </div>
+              </div>
+              <div id="unity-footer">
+                <form name="interview-type">
+                <input type="button" id="interviewA" value="INTERVIEW A" onClick={this.clickedA}></input>
+								<input type="button" id="interviewB" value="INTERVIEW B" onClick={this.clickedB}></input>
+                <input type="button" id="unity-fullscreen-button" src="%PUBLIC_URL%/tmpData/fullscreen-button.png" onClick={this.fullscreenMode}></input>
+                <div id="unity-build-title">3D GAZE</div>
+                </form>
+              </div>
+            </div>
+
+        </div>
+    </div>
+<script>
+
+//$(document).ready(function () {
+
+$(function () {
+
+   //TESTING--function: previewDisplay()
+   //$('#prevImg').on('load', function()
+   //$('#prevImg').onload = () => {
+		//<img src="%PUBLIC_URL%/tmpData/disp-preview.png" id="prevImg" style="width:100%;">
+
+   //setTimeout(function() {
+
+      //Dim display; Set up UI for interview selection
+
+      //$('#prevImg').css('filter', 'brightness(0.25)');
+
+      var canvasHeight = $('#unity-canvas').height();
+      var toolbarHeight = $('#unity-footer').height();
+
+      var updateCanvas = canvasHeight * 0.85;
+      var diff = canvasHeight - updateCanvas;
+      var updateToolbar = toolbarHeight + diff;
+
+      //Assign new dimensions
+      $('#unity-canvas').css({'height': updateCanvas, 'transition-duration': '2s'});
+      $('#unity-footer').css({'height': updateToolbar, 'transition-duration': '2s'});
+
+
+      $('#interviewB').css({'transform': 'translateX(700px) translateY(50px) scale(2)', 'transition-duration': '2s', 'vertical-align': 'center'});
+      $('#interviewA').css({'transform': 'translateX(450px) translateY(50px) scale(2)', 'transition-duration': '2s', 'vertical-align': 'center'});
+
+      $('#unity-fullscreen-button').css({'transform': 'translateY(125px)', 'transition-duration': '2s'});
+      $('#unity-build-title').css({'transform': 'translateY(135px)', 'transition-duration': '2s'});
+
+	//}, 0);
+
+    //ReactDOM.render(<App />, document.getElementById('unity-canvas'));
+
+
+});
+
+</script>
+<script type="text/javascript" src="bundle.js"></script></body>
+</html>
+
+
+
+
+
