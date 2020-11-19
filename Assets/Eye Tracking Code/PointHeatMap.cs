@@ -13,8 +13,23 @@ public class PointHeatMap : MonoBehaviour
 	List<Vector3> EyeTrackingPosData = new List<Vector3>();
 	List<string > EyeTrackingObjData = new List<string >();
 
-	bool ShowAllData      = false;
-	bool ShowRealtimeData = true;
+	bool  ShowAllData      = true;
+	bool  ShowRealtimeData = true;
+	int   CurrentFrame     = 0;
+	float FrameNumber      = 0;
+
+	void ToggleRealTimeData() {
+		ShowRealtimeData = !ShowRealtimeData;
+	}
+
+	void ToggleStaticData() {
+		ShowAllData = !ShowAllData;
+	}
+
+	void ResetRealTimeDataDisplay() {
+		CurrentFrame = 0;
+		FrameNumber  = 0;
+	}
 
 	void Start() {
 		Material mat = new Material(Shader.Find("Particles/Standard Unlit")); 
@@ -62,9 +77,7 @@ public class PointHeatMap : MonoBehaviour
 		}
 	}
 
-	float FrameNumber  = 0;
 	float FrameRate    = 30; //FPS
-	int   CurrentFrame = 0;
 	void Update() {
 		if (ShowRealtimeData) {
 			RaycastHit hit;
