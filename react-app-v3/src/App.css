@@ -1,0 +1,300 @@
+/* Chome, Safari */
+body::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
+
+/* IE, Edge, Firefox */
+body {
+	-ms-overflow-style: none;
+	overflow: -moz-scrollbars-none;
+}
+
+
+.flex-wrapper {
+  border: 10px solid #000000;
+  background-color: #66b266;
+	
+	min-width: 100%;
+	min-height: 100%;
+
+	display: flex;
+	justify-content: center;
+  align-items: center;
+}
+
+.wrap {
+	min-height: 100%;
+	min-width: 100%;
+	/*
+	margin: 0px;
+  padding: 0px;
+	*/
+	cursor: pointer;
+  text-align: center;
+  display: grid;
+
+	grid-template-areas: "left unity-env right";
+	grid-template-columns: 200px auto 200px;
+
+}
+
+#left-panel{
+  width: 200px;
+	height: 100vh;
+  background-color: #000000;
+  grid-area: left;
+}
+
+#right-panel{
+  width: 200px;
+  height: 100vh;
+	background-color: #000000;
+
+  grid-area: right;
+}
+
+#team-logo1 { 
+	float:left;
+	left: 12px;
+	top: 5px;
+	width: 175px;
+  height: 182px;
+  /*
+	background: url('react-app-v3/src/tmpData/team-logo-med.png') no-repeat center;
+	*/
+}
+
+#team-logo2 {
+  float:right;
+	right: 12px;
+	top: 5px;
+
+	width: 175px;
+  height: 182px;
+	/*
+	background: url('react-app-v3/src/tmpData/team-logo-med.png') no-repeat center;
+	*/
+}
+
+#unity-container.unity-desktop { 
+	position: absolute;
+
+	background-color: #ffffff;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+
+  border: 7px solid #000000;
+	grid-area: unity-env;
+}
+
+#unity-canvas { 
+	
+	display: block;
+	position: relative;
+  background-color: #231F20;
+
+  width: 100%;
+	height: auto;
+  
+	font: bold 30px palatino;
+	color: #ffffff;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/*
+#unity-container.unity-mobile { width: 100%; height: 100% }
+#unity-canvas { background: #231F20 }
+.unity-mobile #unity-canvas { width: 100%; height: 100% }
+
+#unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none }
+#unity-logo { width: 154px; height: 130px; background: url('unity-logo-dark.png') no-repeat center }
+#unity-progress-bar-empty { width: 141px; height: 18px; margin-top: 10px; background: url('progress-bar-empty-dark.png') no-repeat center }
+#unity-progress-bar-full { width: 0%; height: 18px; margin-top: 10px; background: url('progress-bar-full-dark.png') no-repeat center }
+*/
+
+#unity-loading-bar { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); display: none }
+#unity-logo { width: 154px; height: 130px; }
+#unity-progress-bar-empty { width: 141px; height: 18px; margin-top: 10px; }
+#unity-progress-bar-full { width: 0%; height: 18px; margin-top: 10px; }
+
+
+#unity-footer {
+  position: relative;
+  width: auto;
+	height: 150px;
+}
+
+#interview-type {
+
+}
+
+/*
+.unity-mobile #unity-footer { display: none }
+#unity-webgl-logo { float:left; width: 204px; height: 38px; background: url('webgl-logo.png') no-repeat center }
+*/
+
+#endScene {
+  display: none;
+	/*
+	background-color: #ffffff;
+	*/
+	background: white;
+	border: 4px solid #000000;
+  font: bold 20px palatino;
+	color: red;
+
+  width: 125px;
+  height: 25%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+	/*
+	vertical-align: center;
+	*/
+}
+
+#reset-realtime {
+  display: none;
+  /*
+  background-color: #ffffff;
+  */
+  background: white;
+  border: 4px solid #000000;
+  font: bold 20px palatino;
+  color: black;
+  
+  width: 125px;
+  height: 25%;
+  position: absolute;
+	left: 0;
+  bottom: 25%;
+	/*
+  vertical-align: center;
+	*/
+}
+
+#show-realtime {
+  display: none;
+  /*
+  background-color: #ffffff;
+  */
+  background: white;
+  border: 4px solid #000000;
+  font: bold 18px palatino;
+  color: green;
+  
+  width: 125px;
+  height: 25%;
+  position: absolute;
+  left: 0;
+  top: 0;
+	/*
+  vertical-align: center;
+	*/
+}
+
+#show-all-data {
+  display: none;
+  /*
+  background-color: #ffffff;
+  */
+  background: white;
+  border: 4px solid #000000;
+  font: bold 16px palatino;
+  color: blue;
+  
+  width: 125px;
+  height: 25%;
+  position: absolute;
+  left: 0;
+  top: 25%;
+	/*
+  vertical-align: center;
+	*/
+}
+
+#unity-fullscreen-button {
+  border: 4px solid #000000;
+  font: bold 20px palatino;
+
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  left: 96%;
+  top: 65%;
+  /*
+	vertical-align: center;
+	background: url('react-app-v3/src/tmpData/fullscreen-button.png') no-repeat center; 
+	*/
+}
+
+
+/*
+#unity-fullscreen-button { float: right; width: 40px; height: 40px; background: url('fullscreen-button.png') no-repeat center }
+*/
+
+#unity-build-title {
+	left: 86%;
+	top: 72%;
+	
+	position: absolute;
+	font: bold 30px palatino;
+	/*
+	vertical-align: center;
+	*/
+}
+
+#interviewA {
+  background: black;
+  border: 4px solid #00CED1;
+  font: bold 36px palatino;
+  color: white;
+	
+	text-align: center;
+  width: auto;
+  height: 75px;
+  position: absolute;
+  top: 15%;
+  left: 30%;
+	/*
+  vertical-align: center;
+	*/
+}
+#interviewB {
+  background: black;
+  border: 4px solid #00CED1;
+  font: bold 36px palatino;
+  color: white;
+
+	text-align: center;
+  width: auto;
+  height: 75px;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+	/*
+	vertical-align: center;
+	*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
