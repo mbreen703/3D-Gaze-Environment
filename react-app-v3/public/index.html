@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Unity WebGL Player | gaze3D</title>
+  <link rel="shortcut icon" href="%PUBLIC_URL%/tmpData/favicon.ico">
+  <link rel="stylesheet" href="%PUBLIC_URL%/react-app-v3/src/index.css">
+  <link rel="stylesheet" href="%PUBLIC_URL%/tmpData/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="flex-wrapper">
+        <div class="wrap">
+
+            <div id="left-panel">
+              <img src="%PUBLIC_URL%/tmpData/team-logo-med.png" id="team-logo1"></img>
+            </div>
+
+            <div id="right-panel">
+							<img src="%PUBLIC_URL%/tmpData/team-logo-med.png" id="team-logo2"></img>
+            </div>
+
+            <div id="unity-container" class="unity-desktop">
+						
+              <div id="unity-canvas" style="width: 1500px; height: 800px;"></div>
+
+              <div id="unity-loading-bar">
+                <div id="unity-logo" src="react-app-v3/src/tmpData/unity-logo-dark.png"></div>
+                <div id="unity-progress-bar-empty" src="react-app-v3/src/tmpData/progress-bar-empty-dark.png">
+                  <div id="unity-progress-bar-full" src="react-app-v3/src/tmpData/progress-bar-full-dark.png"></div>
+                </div>
+              </div>
+              <div id="unity-footer">
+                <form name="interview-type">
+                <input type="button" id="interviewA" value="INTERVIEW A" onClick={this.clickedA}></input>
+								<input type="button" id="interviewB" value="INTERVIEW B" onClick={this.clickedB}></input>
+                <input type="button" id="endScene" value="EXIT" onClick={this.unmountBTN}></input>
+								<input type="button" id="reset-realtime" value="RESET" onClick={this.resetBTN}></input>
+								<input type="button" id="show-realtime" value="REALTIME" onClick={this.toggleRealtime}></input>
+								<input type="button" id="show-all-data" value="AGGREGATE" onClick={this.toggleAll}></input>
+								<input type="button" id="unity-fullscreen-button" src="%PUBLIC_URL%/tmpData/fullscreen-button.png" onClick={this.fullscreenMode}></input>
+                <div id="unity-build-title">3D GAZE</div>
+                </form>
+              </div>
+            </div>
+
+        </div>
+    </div>
+<script>
+
+$(function () {
+
+		//Displays feature buttons relevant to Interview A on click
+		$('#interviewA').click(function() {
+				
+				$('#endScene').css({'display': 'inline-block'});
+
+		});	
+		//Displays feature buttons relevant to Interview B on click		
+		$('#interviewB').click(function() {
+
+				$('#endScene').css({'display': 'inline-block'});
+				$('#reset-realtime').css({'display': 'inline-block'});
+        $('#show-realtime').css({'display': 'inline-block'});
+        $('#show-all-data').css({'display': 'inline-block'});
+    
+		});
+
+});
+
+</script>
+<script type="text/javascript" src="bundle.js"></script>
+
+</body>
+</html>
+
