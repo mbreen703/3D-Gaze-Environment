@@ -3,6 +3,8 @@
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
 /[Ll]ibrary/
+/react-app-v3/InterviewA_3P/[Ll]ibrary/
+/react-app-v3/InterviewB_PAS/[Ll]ibrary/
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
